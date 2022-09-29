@@ -1,3 +1,104 @@
+body header {
+  height: 100px;
+  border-bottom: 2px solid #ccc;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #161618;
+}
+body header .mobile-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 25px;
+}
+body header .mobile-content .nav-desktop {
+  display: none;
+}
+body header .menu-links {
+  position: fixed;
+  width: 300px;
+  top: 0;
+  right: -300;
+  height: 100%;
+  background-color: #cacad2;
+}
+body header .menu-links > a {
+  margin: 150px 0;
+  width: 48px;
+  height: 48px;
+  float: right;
+}
+body header .menu-links ul {
+  margin: 150px;
+  text-align: center;
+  padding: 0;
+  font-size: 18px;
+}
+body header .menu-links ul li + li {
+  margin-top: 40px;
+}
 
+@media (min-width: 768px) {
+  body header .search {
+    position: relative;
+  }
+  body header .search img {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+  }
+  body header .search input {
+    width: 500px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1882352941);
+    color: #fff;
+    padding-left: 50px;
+    outline: 0;
+    border: none;
+    border-radius: 20px;
+  }
+  body header .search input::placeholder {
+    color: #fff;
+  }
+}
+@media (min-width: 1200px) {
+  body header .mobile-content {
+    justify-content: center;
+  }
+  body header .mobile-content .nav-desktop {
+    display: block;
+  }
+  body header .mobile-content .nav-desktop ul {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+  }
+  body header .mobile-content .nav-desktop ul li {
+    min-width: 100px;
+    margin-left: 50px;
+    font-weight: normal;
+  }
+}
+@font-face {
+  font-family: "Lato";
+  src: url(/assets/fonts/Lato-Regular.ttf) format(truettpe);
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Lato";
+  src: url(/assets/fonts/Lato-Light.ttf) format(truettpe);
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Lato";
+  src: url(/assets/fonts/Lato-Bold.ttf) format(truettpe);
+  font-weight: bold;
+}
 
 /*# sourceMappingURL=main.css.map */

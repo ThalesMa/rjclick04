@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass":"sass --watch assets/scss/main.scss:assets/css/main.css"
-
+    "sass":"sass --watch assets/scss/main.scss:assets/css/main.css",
+    "git": "git add --all && git commit -m 'Deploy' && git push origin master"
   },
   "repository": {
     "type": "git",
