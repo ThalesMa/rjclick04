@@ -1,6 +1,89 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato";
+}
+body .overlay {
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.3137254902);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+body .hide-mobile {
+  display: none;
+}
+body a {
+  color: #fff;
+  text-decoration: none;
+}
+body ul {
+  padding: 0;
+}
+body ul li {
+  list-style: none;
+}
+body.open .overlay {
+  display: block;
+}
+body.open header .menu-links {
+  right: 0;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  background-color: #131C21;
+  color: #FFF;
+}
+body .custom-hr {
+  width: 180px;
+  margin: 0;
+  border-color: #8D9035;
+  background-color: #8D9035;
+  height: 3px;
+}
+body .show-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  body .show-desktop {
+    display: block;
+  }
+  body .max-width {
+    max-width: 700px !important;
+  }
+}
+@media (min-width: 1440px) {
+  body .max-width {
+    max-width: 1440px !important;
+  }
+}
+@font-face {
+  font-family: "Lato";
+  src: url("/assets/fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Lato-Light";
+  src: url("/assets/fonts/Lato-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Lato-Bold";
+  src: url("/assets/fonts/Lato-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
 body header {
   height: 100px;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #CCCCCC;
   position: fixed;
   z-index: 3;
   width: 100%;
@@ -22,18 +105,18 @@ body header .menu-links {
   position: fixed;
   width: 300px;
   top: 0;
-  right: -300;
+  right: -300px;
   height: 100%;
-  background-color: #cacad2;
+  background-color: #CACAD2;
 }
 body header .menu-links > a {
-  margin: 150px 0;
+  margin: 15px;
   width: 48px;
   height: 48px;
   float: right;
 }
 body header .menu-links ul {
-  margin: 150px;
+  margin: 150px 0;
   text-align: center;
   padding: 0;
   font-size: 18px;
@@ -55,14 +138,14 @@ body header .menu-links ul li + li {
     width: 500px;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.1882352941);
-    color: #fff;
+    color: #FFF;
     padding-left: 50px;
     outline: 0;
     border: none;
     border-radius: 20px;
   }
   body header .search input::placeholder {
-    color: #fff;
+    color: #FFF;
   }
 }
 @media (min-width: 1200px) {
@@ -73,7 +156,7 @@ body header .menu-links ul li + li {
     display: block;
   }
   body header .mobile-content .nav-desktop ul {
-    color: #fff;
+    color: #FFF;
     display: flex;
     justify-content: space-between;
     margin: 0;
@@ -82,23 +165,225 @@ body header .menu-links ul li + li {
   body header .mobile-content .nav-desktop ul li {
     min-width: 100px;
     margin-left: 50px;
-    font-weight: normal;
   }
 }
-@font-face {
-  font-family: "Lato";
-  src: url(/assets/fonts/Lato-Regular.ttf) format(truettpe);
-  font-weight: normal;
+body section.hero {
+  background-image: url("/assets/images/cristoredentor.jpg");
+  background-repeat: no-repeat;
+  background-position: center 50px;
+  background-size: cover;
+  height: 100vh;
 }
-@font-face {
-  font-family: "Lato";
-  src: url(/assets/fonts/Lato-Light.ttf) format(truettpe);
-  font-weight: 300;
+body section.hero::before {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: "";
+  background-image: linear-gradient(#161618, rgba(22, 22, 24, 0.5647058824));
 }
-@font-face {
-  font-family: "Lato";
-  src: url(/assets/fonts/Lato-Bold.ttf) format(truettpe);
+body section.hero .destak {
+  height: calc(100vh - 100px);
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+body section.hero .destak .title {
+  margin-top: 100px;
+  text-align: center;
+}
+body section.hero .destak .title h1 {
+  margin: 0;
+  color: #FFF;
+  font-size: 40px;
   font-weight: bold;
+}
+body section.hero .destak .title h2 {
+  font-size: 20px;
+  color: #FFF;
+  font-weight: lighter;
+}
+body section.hero .destak .links {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(19, 28, 33, 0.5019607843);
+  padding: 0 25px;
+  overflow: auto;
+  color: #FFF;
+}
+body section.hero .destak .links .link-item {
+  display: flex;
+  align-items: center;
+  min-width: 150px;
+  cursor: pointer;
+  height: 100%;
+}
+body section.hero .destak .links .link-item.active {
+  border-bottom: 2px solid #BFBC37;
+}
+body section.hero .destak .links .link-item.active svg path {
+  fill: #BFBC37;
+}
+body section.hero .destak .links .link-item h3,
+body section.hero .destak .links .link-item h4 {
+  margin: 0;
+}
+body section.hero .destak .links .link-item h3 {
+  font-size: 12px;
+}
+body section.hero .destak .links .link-item h4 {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  body selection.hero .destak .title h1 {
+    font-size: 85px;
+  }
+  body selection.hero .destak .title h2 {
+    font-size: 24px;
+  }
+  body selection.hero .destak .links {
+    justify-content: space-around;
+  }
+}
+@media (min-width: 1400px) {
+  body section.hero .destak .title {
+    margin-top: 300px;
+  }
+  body section.hero .destak .title h1 {
+    font-size: 135px;
+  }
+  body section.hero .destak .title h2 {
+    font-size: 40px;
+  }
+  body section.hero .destak .links .link-item .location {
+    margin-left: 10px;
+  }
+  body section.hero .destak .links .link-item .location h3 {
+    font-size: 24px;
+  }
+  body section.hero .destak .links .link-item .location h4 {
+    font-size: 20px;
+  }
+}
+main .popular-places {
+  margin: 0 auto;
+  margin-bottom: 100px;
+  max-width: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main .popular-places .section-title {
+  text-align: center;
+  margin: 100px 0;
+}
+main .popular-places .section-title h2 {
+  font-size: 35px;
+}
+main .popular-places .section-title h4 {
+  font-weight: lighter;
+  font-size: 16px;
+}
+main .popular-places .places {
+  margin: 100px 0;
+}
+main .popular-places .places .individual-place {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  margin-top: 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main .popular-places .places .individual-place .description {
+  height: 120px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(16, 25, 30, 0.5647058824);
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main .popular-places .places .individual-place .description .name {
+  display: flex;
+}
+main .popular-places .places .individual-place .description .name h3 {
+  margin-top: 10px;
+}
+main .popular-places .places .individual-place .description p {
+  margin: 0;
+  font-size: 14px;
+}
+main .popular-places .places .individual-place:nth-child(1) {
+  background-image: url("/assets/images/popular-places/paounknown.png");
+}
+main .popular-places .places .individual-place:nth-child(2) {
+  background-image: url("/assets/images/popular-places/maraca.png");
+}
+main .popular-places .places .individual-place:nth-child(3) {
+  background-image: url("/assets/images/popular-places/unknown.png");
+}
+main .popular-places .places .individual-place:nth-child(4) {
+  background-image: url("/assets/images/popular-places/florestunknown.png");
+}
+
+@media (min-width 768px) {
+  main .popular-places {
+    width: 100%;
+  }
+  main .popular-places .section-title h2 {
+    font-size: 45px;
+  }
+  main .popular-places .section-title h3 {
+    font-size: 22px;
+  }
+  main .places {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  main .places .individual-place {
+    width: 320px;
+  }
+}
+main .why-choose-us {
+  background-color: #10191e;
+  text-align: center;
+  margin-bottom: 100px;
+}
+main .why-choose-us > h2 {
+  font-size: 30px;
+  margin: 0;
+}
+main .why-choose-us .reasons {
+  max-width: 300px;
+  margin: 75px auto;
+}
+main .why-choose-us .reasons .reason-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  height: 260px;
+}
+main .why-choose-us .reasons .reason-item.active .icon {
+  background-color: #8D9035;
+}
+main .why-choose-us .reasons .reason-item.active h3 {
+  color: #8D9035;
+}
+main .why-choose-us .reasons .reason-item .icon {
+  width: 100%;
+  height: 100px;
+  background-color: #252A2D;
 }
 
 /*# sourceMappingURL=main.css.map */
